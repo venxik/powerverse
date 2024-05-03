@@ -1,4 +1,4 @@
-import { checkIfEmulator } from '@Native/EmulatorDetector';
+import EmulatorDetector from '@Native/EmulatorDetector';
 import { useReduxSelector } from '@Stores';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, ScrollView, Image } from 'react-native';
@@ -13,7 +13,7 @@ const DetailScreen = () => {
   }, []);
 
   const doCheckSimulator = async () => {
-    const result = await checkIfEmulator();
+    const result = await EmulatorDetector.isEmulator();
     setIsEmulator(result);
   };
 
@@ -26,7 +26,7 @@ const DetailScreen = () => {
             style={{ width: '100%', height: 400 }}
           />
           <Divider style={styles.divider} />
-          <Text variant="headlineLarge">
+          <Text variant="headlineLarge" testID="txt-emulator">
             {isEmulator ? 'Running on emulator/simulator' : 'Running on device'}
           </Text>
           <Divider style={styles.divider} />

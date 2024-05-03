@@ -15,3 +15,12 @@ jest.mock('@react-navigation/native', () => {
     }),
   };
 });
+
+jest.mock('react-native', () => {
+  const RN = jest.requireActual('react-native');
+  RN.NativeModules.EmulatorDetector = {
+    isEmulator: jest.fn().mockResolvedValue(false),
+    // .mockImplementationOnce(() => Promise.resolve(() => false)),
+  };
+  return RN;
+});
