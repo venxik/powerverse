@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'react-native',
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
-  testPathIgnorePatterns: ['<rootDir>/node_modules/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/__mocks__/'],
   transformIgnorePatterns: [
     'node_modules/(?!(jest-)?@?react-native|react-native-paper|@react-navigation/.*|@react-native-community/.*|react-redux)',
   ],
