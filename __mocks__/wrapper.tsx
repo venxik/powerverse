@@ -36,7 +36,7 @@ function renderWithProviders(
 }
 
 export const AllTheProviders = ({ children }: { children: JSX.Element }) => {
-  return <Provider store={setupStore({})}>{children}</Provider>;
+  return <Provider store={setupStore()}>{children}</Provider>;
 };
 
 // override render method

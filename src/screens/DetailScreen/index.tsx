@@ -34,13 +34,19 @@ const DetailScreen = () => {
           <Text variant="bodyLarge">{animeData.title}</Text>
           <Divider style={styles.divider} />
           <Text variant="headlineSmall">Rating</Text>
-          <Text variant="bodyLarge">{animeData.rating ?? '-'}</Text>
+          <Text variant="bodyLarge" testID="txt-rating">
+            {animeData.rating ? animeData.rating : '-'}
+          </Text>
           <Divider style={styles.divider} />
           <Text variant="headlineSmall">Score</Text>
-          <Text variant="bodyLarge">{animeData.score ?? '-'}</Text>
+          <Text variant="bodyLarge" testID="txt-score">
+            {animeData.score ? animeData.score : '-'}
+          </Text>
           <Divider style={styles.divider} />
           <Text variant="headlineSmall">Year</Text>
-          <Text variant="bodyLarge">{animeData.year ?? '-'}</Text>
+          <Text variant="bodyLarge" testID="txt-year">
+            {animeData.year ? animeData.year : '-'}
+          </Text>
           <Divider style={styles.divider} />
           <Text variant="headlineSmall">Synopsis</Text>
           <Text variant="bodyLarge">{animeData.synopsis}</Text>

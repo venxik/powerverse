@@ -24,10 +24,14 @@ const AnimeItemList = ({ data }: AnimeItemListProps) => {
           style={{ width: 60, height: 60, borderRadius: 60 }}
         />
         <View style={styles.rightContainer}>
-          <Text style={styles.titleText}>{data.title ?? '-'}</Text>
-          <Text style={styles.ratingText}>{data.rating ?? '-'}</Text>
-          <Text>Score: {data.score ?? '-'}</Text>
-          <Text style={styles.yearText}>{data.year ?? '-'}</Text>
+          <Text style={styles.titleText}>{data.title}</Text>
+          <Text style={styles.ratingText} testID="txt-rating">
+            {data.rating ? data.rating : '-'}
+          </Text>
+          <Text testID="txt-score">Score: {data.score ? data.score : '-'}</Text>
+          <Text style={styles.yearText} testID="txt-year">
+            {data.year ? data.year : '-'}
+          </Text>
         </View>
       </Card.Content>
     </Card>

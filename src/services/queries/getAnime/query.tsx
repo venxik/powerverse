@@ -14,4 +14,4 @@ export const getAnimeApi = baseApi.injectEndpoints({
   overrideExisting: true,
 });
 
-export const { useGetAnimeListQuery, useLazyGetAnimeListQuery } = getAnimeApi;
+export const { useGetAnimeListQuery } = getAnimeApi;

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const FlatlistError = ({ message }: { message?: string }) => {
   return (
-    <View style={styles.emptyContainer}>
+    <View style={styles.emptyContainer} testID="flatlist-error">
       <Text>Error: {message}</Text>
     </View>
   );

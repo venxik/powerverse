@@ -8,7 +8,7 @@ import { Searchbar } from 'react-native-paper';
 import { AnimeItem, useGetAnimeListQuery } from '@Services/queries/getAnime';
 import { debounce } from '@Utils/debounce';
 
-const UpcomingScreen = () => {
+const HomeScreen = () => {
   const [searchValue, setSearchValue] = useState('');
   const [queryValue, setQueryValue] = useState('');
 
@@ -44,13 +44,14 @@ const UpcomingScreen = () => {
         placeholder={'Search Anime'}
         onChangeText={handleSearch}
         style={styles.searchContainer}
+        testID="search-bar"
       />
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   const renderSeparator = useCallback(() => {
-    return <View style={{ height: 6 }} />;
+    return <View style={{ height: 6 }} testID="separator" />;
   }, []);
 
   const renderLoadingIndicator = useCallback(() => {
@@ -58,12 +59,8 @@ const UpcomingScreen = () => {
   }, []);
 
   const renderEmpty = useCallback(() => {
-    if (isLoadingQuery) {
-      return renderLoadingIndicator();
-    }
     return <FlatlistEmpty />;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isLoadingQuery]);
+  }, []);
 
   const renderError = useCallback(() => {
     return <FlatlistError message={JSON.stringify(error)} />;
@@ -108,4 +105,4 @@ const styles = StyleSheet.create({
   searchContainer: { margin: 10 },
 });
 
-export default UpcomingScreen;
+export default HomeScreen;
