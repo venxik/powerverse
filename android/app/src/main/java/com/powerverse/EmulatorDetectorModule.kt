@@ -7,7 +7,8 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 
-class EmulatorDetectorModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+class EmulatorDetectorModule(reactContext: ReactApplicationContext) :
+    ReactContextBaseJavaModule(reactContext) {
 
     override fun getName(): String {
         return "EmulatorDetector"
@@ -15,8 +16,8 @@ class EmulatorDetectorModule(reactContext: ReactApplicationContext) : ReactConte
 
     @ReactMethod()
     fun isEmulator(promise: Promise) {
-        try {
-            promise.resolve(Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
+        promise.resolve(
+            Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
                     || Build.FINGERPRINT.startsWith("generic")
                     || Build.FINGERPRINT.startsWith("unknown")
                     || Build.HARDWARE.contains("goldfish")
@@ -32,9 +33,7 @@ class EmulatorDetectorModule(reactContext: ReactApplicationContext) : ReactConte
                     || Build.PRODUCT.contains("sdk_gphone64_arm64")
                     || Build.PRODUCT.contains("vbox86p")
                     || Build.PRODUCT.contains("emulator")
-                    || Build.PRODUCT.contains("simulator"))
-        } catch (e: Throwable) {
-            promise.reject("Check simulator error", e)
-        }
+                    || Build.PRODUCT.contains("simulator")
+        )
     }
 }
